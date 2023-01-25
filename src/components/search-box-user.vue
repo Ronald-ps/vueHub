@@ -7,6 +7,7 @@
 
 <script>
 import { api } from '@/api/githubMock';
+import debounce from 'lodash/debounce';
 
 export default {
   data() {
@@ -24,14 +25,14 @@ export default {
     },
   },
   methods: {
-    async getItems(searchTerm) {
+    getItems: debounce(async function (searchTerm) {
       this.itemsLoading = true
       const { items } = await api.searchUsers(searchTerm)
       if (items) {
         this.items = items.map(item => item.login)
       }
       this.itemsLoading = false
-    }
+    }, 1500)
   }
 }
 </script>

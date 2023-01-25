@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card elevation="3" v-for="repo in repos" :key="repo.id" class="mb-3">
-      <v-card-title>
+      <v-card-title @click="$emit('selected-repo', repo.url)">
         {{ repo.name }}
       </v-card-title>
       <v-icon></v-icon>

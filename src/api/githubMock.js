@@ -462,5 +462,89 @@ export const api = {
         "default_branch": "master"
       }
     ]
+  },
+  listContentRepo(user, repo, path) {
+    return [
+      {
+        "name": ".github",
+        "path": ".github",
+        "sha": "3bc9c680e6187f95f75e075753c1791f39666d79",
+        "size": 0,
+        "url": "https://api.github.com/repos/launasci/aboutme/contents/.github?ref=main",
+        "html_url": "https://github.com/launasci/aboutme/tree/main/.github",
+        "git_url": "https://api.github.com/repos/launasci/aboutme/git/trees/3bc9c680e6187f95f75e075753c1791f39666d79",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/launasci/aboutme/contents/.github?ref=main",
+          "git": "https://api.github.com/repos/launasci/aboutme/git/trees/3bc9c680e6187f95f75e075753c1791f39666d79",
+          "html": "https://github.com/launasci/aboutme/tree/main/.github"
+        }
+      },
+      {
+        "name": ".gitignore",
+        "path": ".gitignore",
+        "sha": "45ddf0ae397075d91d1660f81bc5f6c39f60f9fb",
+        "size": 6,
+        "url": "https://api.github.com/repos/launasci/aboutme/contents/.gitignore?ref=main",
+        "html_url": "https://github.com/launasci/aboutme/blob/main/.gitignore",
+        "git_url": "https://api.github.com/repos/launasci/aboutme/git/blobs/45ddf0ae397075d91d1660f81bc5f6c39f60f9fb",
+        "download_url": "https://raw.githubusercontent.com/launasci/aboutme/main/.gitignore",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/launasci/aboutme/contents/.gitignore?ref=main",
+          "git": "https://api.github.com/repos/launasci/aboutme/git/blobs/45ddf0ae397075d91d1660f81bc5f6c39f60f9fb",
+          "html": "https://github.com/launasci/aboutme/blob/main/.gitignore"
+        }
+      },
+      {
+        "name": "docs",
+        "path": "docs",
+        "sha": "2449b0cc90ac244576e7ef0b028264ca451f60e1",
+        "size": 0,
+        "url": "https://api.github.com/repos/launasci/aboutme/contents/docs?ref=main",
+        "html_url": "https://github.com/launasci/aboutme/tree/main/docs",
+        "git_url": "https://api.github.com/repos/launasci/aboutme/git/trees/2449b0cc90ac244576e7ef0b028264ca451f60e1",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/launasci/aboutme/contents/docs?ref=main",
+          "git": "https://api.github.com/repos/launasci/aboutme/git/trees/2449b0cc90ac244576e7ef0b028264ca451f60e1",
+          "html": "https://github.com/launasci/aboutme/tree/main/docs"
+        }
+      },
+      {
+        "name": "mkdocs.yml",
+        "path": "mkdocs.yml",
+        "sha": "1d09e02c4e32060be1b616a13bcad6f0b49a5242",
+        "size": 60,
+        "url": "https://api.github.com/repos/launasci/aboutme/contents/mkdocs.yml?ref=main",
+        "html_url": "https://github.com/launasci/aboutme/blob/main/mkdocs.yml",
+        "git_url": "https://api.github.com/repos/launasci/aboutme/git/blobs/1d09e02c4e32060be1b616a13bcad6f0b49a5242",
+        "download_url": "https://raw.githubusercontent.com/launasci/aboutme/main/mkdocs.yml",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/launasci/aboutme/contents/mkdocs.yml?ref=main",
+          "git": "https://api.github.com/repos/launasci/aboutme/git/blobs/1d09e02c4e32060be1b616a13bcad6f0b49a5242",
+          "html": "https://github.com/launasci/aboutme/blob/main/mkdocs.yml"
+        }
+      },
+      {
+        "name": "requirements.txt",
+        "path": "requirements.txt",
+        "sha": "01b942c5b7829cf5d94bd83da2e58f8f0e61923f",
+        "size": 29,
+        "url": "https://api.github.com/repos/launasci/aboutme/contents/requirements.txt?ref=main",
+        "html_url": "https://github.com/launasci/aboutme/blob/main/requirements.txt",
+        "git_url": "https://api.github.com/repos/launasci/aboutme/git/blobs/01b942c5b7829cf5d94bd83da2e58f8f0e61923f",
+        "download_url": "https://raw.githubusercontent.com/launasci/aboutme/main/requirements.txt",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/launasci/aboutme/contents/requirements.txt?ref=main",
+          "git": "https://api.github.com/repos/launasci/aboutme/git/blobs/01b942c5b7829cf5d94bd83da2e58f8f0e61923f",
+          "html": "https://github.com/launasci/aboutme/blob/main/requirements.txt"
+        }
+      }
+    ]
   }
 }
