@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card elevation="3" v-for="repo in repos" :key="repo.id" class="mb-3">
-      <v-card-title @click="$emit('selected-repo', repo.url)">
+      <v-card-title @click="$emit('selected-repo', { user, repo: repo.name })">
         {{ repo.name }}
       </v-card-title>
       <v-icon></v-icon>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { api } from '@/api/githubMock'
+import { api } from '@/api/github'
 export default {
   components: {
 
@@ -26,7 +26,6 @@ export default {
   },
   watch: {
     user(val) {
-      console.log("novo valor", val)
       this.getRepos(val)
     }
   },
@@ -34,7 +33,6 @@ export default {
     async getRepos(user) {
       const repos = await api.listRepos(user)
       this.repos = repos
-      console.log(this.repos)
     }
   }
 

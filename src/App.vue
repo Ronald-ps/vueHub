@@ -2,8 +2,8 @@
   <v-app>
     <v-main>
       <search-box-user @user-selected="v => userSelected = v" />
-      <list-of-repos :user="userSelected" @selected-repo="url => selectedRepoUrl = url" />
-      <list-content-of-repository :url="selectedRepoUrl" />
+      <list-of-repos v-show="!viewDirectory" :user="userSelected" @selected-repo="selectedRepo" />
+      <tree-view-directory :repoInfos="selectedRepoInfos" />
     </v-main>
   </v-app>
 </template>
@@ -11,7 +11,7 @@
 <script>
 import searchBoxUser from '@/components/search-box-user';
 import ListRepos from '@/components/list-repos';
-import ListContentRepo from '@/components/list-directory';
+import treeViewDirectory from '@/components/tree-view-directory';
 
 
 
@@ -21,12 +21,18 @@ export default {
   components: {
     'search-box-user': searchBoxUser,
     'list-of-repos': ListRepos,
-    'list-content-of-repository': ListContentRepo
+    'tree-view-directory': treeViewDirectory,
   },
 
   data: () => ({
     userSelected: null,
-    selectedRepoUrl: null,
+    selectedRepoInfos: null,
+    viewDirectory: false
   }),
+  methods: {
+    selectedRepo(infos) {
+      this.selectedRepoInfos = infos
+    }
+  }
 };
 </script>

@@ -463,7 +463,7 @@ export const api = {
       }
     ]
   },
-  listContentRepo(user, repo, path) {
+  listContent(user, repo, file) {
     return [
       {
         "name": ".github",

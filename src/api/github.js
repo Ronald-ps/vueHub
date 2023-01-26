@@ -9,7 +9,7 @@ export const api = {
   listRepos(user, page = 1) {
     return axios.get(`/users/${user}/repos?page=${page}`).then(r => r.data)
   },
-  listContent(baseUrl, path = '') {
-    return axios.get(`${baseUrl}/contents/${path}`).then(response => response.data)
-  }
+  listContent(user, repo, file = '') {
+    return axios.get(`repos/${user}/${repo}/contents/${file}`).then(response => response.data)
+  },
 }

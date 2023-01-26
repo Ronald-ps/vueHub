@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { api } from '@/api/githubMock';
+import { api } from '@/api/github';
 import debounce from 'lodash/debounce';
 
 export default {

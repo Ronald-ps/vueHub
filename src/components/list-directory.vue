@@ -64,11 +64,9 @@ export default {
       this.folders = []
       const content = await api.listContent(baseUrl, path)
       for (const item of content) {
-        console.log(item)
         const { name, path } = item
         if (item.type === 'dir') {
           this.folders.push({ name, path })
-          console.log(name, path)
         }
         else {
           this.files.push({ name, path })
