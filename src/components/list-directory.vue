@@ -45,6 +45,7 @@
 </template>
 
 <script>
+// componente que utilizei antes de adicionar a visualização em árvore
 import { api } from '@/api/github'
 export default {
   props: {

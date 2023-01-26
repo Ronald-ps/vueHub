@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <search-box-user @user-selected="v => userSelected = v" />
-      <list-of-repos v-show="!viewDirectory" :user="userSelected" @selected-repo="selectedRepo" />
+      <list-of-repos :user="userSelected" @selected-repo="selectedRepo" />
       <tree-view-directory :repoInfos="selectedRepoInfos" />
     </v-main>
   </v-app>
@@ -27,7 +27,6 @@ export default {
   data: () => ({
     userSelected: null,
     selectedRepoInfos: null,
-    viewDirectory: false
   }),
   methods: {
     selectedRepo(infos) {

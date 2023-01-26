@@ -1,15 +1,19 @@
 <template>
-  <v-treeview v-model="tree" :open="initiallyOpen" :items="items" activatable item-key="name" open-on-click>
+  <v-treeview v-model="tree" :open="initiallyOpen" :items="items" activatable item-key="name" open-on-click transition
+    :multiple-active="false" selection-type="leaf">
     <template v-slot:prepend="{ item, open }">
       <v-icon v-if="!item.file" @click="subfolderOpen(item)">
         {{ open? 'mdi-folder-open': 'mdi-folder-open' }}
       </v-icon>
       <v-icon v-if="item.file">
-        {{ files[item.file] }}
+        {{ files[item.file] || 'mdi-file-code' }}
       </v-icon>
     </template>
     <template v-slot:label="{ item }">
-      <div @click="subfolderOpen(item)">
+      <div v-if="item.type === 'dir'" class="folder" @click="subfolderOpen(item)">
+        {{ item.name }}
+      </div>
+      <div v-else class="file">
         {{ item.name }}
       </div>
     </template>
@@ -38,6 +42,7 @@ export default {
       txt: 'mdi-file-document-outline',
       xls: 'mdi-file-excel',
     },
+    foldersLoadeds: []
   }),
   watch: {
     repoInfos(d) {
@@ -82,12 +87,22 @@ export default {
       return [...files, ...folders]
     },
     subfolderOpen(folder) {
-      console.log("🚀 ~ file: tree-view-directory.vue:83 ~ subfolderOpen ~ folder", folder)
-
+      if (this.foldersLoadeds.includes(folder)) return
       const r = this.repoInfos
       this.recursiveFillDirectory(r.user, r.repo, folder.path, folder.children)
-      console.log("🚀 ~ file: tree-view-directory.vue:85 ~ subfolderOpen ~ folder", folder)
+      this.foldersLoadeds.push(folder)
     }
   }
 }
 </script>
+
+<style>
+.folder {
+  color: rgb(38, 56, 56);
+  font-weight: bold;
+}
+
+.file {
+  color: rgb(57, 24, 57);
+}
+</style>

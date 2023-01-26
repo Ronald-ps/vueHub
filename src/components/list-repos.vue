@@ -1,7 +1,8 @@
 <template>
   <div>
-    <v-card elevation="3" v-for="repo in repos" :key="repo.id" class="mb-3">
-      <v-card-title @click="$emit('selected-repo', { user, repo: repo.name })">
+    <v-card elevation="3" v-show="isVisible(repo.id)" v-for="repo in repos" :key="repo.id" class="mb-3"
+      @click="selectRepo(repo)">
+      <v-card-title>
         {{ repo.name }}
       </v-card-title>
       <v-icon></v-icon>
@@ -21,7 +22,8 @@ export default {
   },
   data() {
     return {
-      repos: []
+      repos: [],
+      selectedRepoId: null
     }
   },
   watch: {
@@ -33,6 +35,19 @@ export default {
     async getRepos(user) {
       const repos = await api.listRepos(user)
       this.repos = repos
+    },
+    selectRepo(repo) {
+      if (this.selectedRepoId === repo.id) {
+        this.selectedRepoId = null
+        this.$emit('deselected-repo')
+        return
+      }
+      this.selectedRepoId = repo.id
+      this.$emit('selected-repo', { user: this.user, repo: repo.name })
+    },
+    isVisible(repoId) {
+      if (!this.selectedRepoId) return true
+      return this.selectedRepoId === repoId
     }
   }
 
